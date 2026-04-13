@@ -1,25 +1,14 @@
-# Sistema de Control de Temperatura Industrial
-# ID de Referencia: TEMP-01, TEMP-02
+import hashlib
 
-import time
-
-def leer_sensor():
-    # Simulación de lectura de temperatura
-    return 105 
-
-def verificar_seguridad(valor):
-    # Lógica de ciberseguridad para evitar manipulaciones (TEMP-02)
-    print("Verificando firma digital del dato...")
-    return True
-
-def bucle_principal():
-    temp = leer_sensor()
-    if verificar_seguridad(temp):
-        if temp > 100:
-            print(f"ALERTA: Temperatura crítica de {temp}C detectada!")
-        else:
-            print("Temperatura normal.")
-
-if __name__ == "__main__":
-    bucle_principal()
+def verificar_seguridad(dato, firma_recibida):
+    # Simulamos una validación de integridad SHA-256 (Mitigación BIEMH26-671)
+    llave_secreta = "VALVULINA_SAFE_2026"
+    hash_esperado = hashlib.sha256((str(dato) + llave_secreta).encode()).hexdigest()
+    
+    if firma_recibida == hash_esperado:
+        print("Integridad confirmada: El dato es auténtico.")
+        return True
+    else:
+        print("¡ALERTA DE SEGURIDAD! Intento de inyección de datos detectado.")
+        return False
 # Fin del archivo.
