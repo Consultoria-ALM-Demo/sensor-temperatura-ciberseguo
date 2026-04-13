@@ -12,4 +12,4 @@ def verificar_seguridad(dato, firma_recibida):
         print("¡ALERTA DE SEGURIDAD! Intento de inyección de datos detectado.")
         return False
 # Fin del archivo.
-# Modificación de estado para la task. Commit "Implementación de firma SHA-256. Refs BIEMH26-675 status:done".
+# Modificación de estado para la task. Commit "Implementación de firma SHA-256. Refs BIEMH26-675 status:done"
