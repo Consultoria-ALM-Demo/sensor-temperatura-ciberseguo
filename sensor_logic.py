@@ -1,7 +1,7 @@
 import hashlib
 
 def verificar_seguridad(dato, firma_recibida):
-    llave_secreta = "VALVULINA_SAFE_2027"
+    llave_secreta = "VALVULINA_SAFE_2026"
     # Concatenamos y limpiamos posibles espacios accidentales
     cadena_a_validar = (str(dato) + llave_secreta).strip()
     hash_esperado = hashlib.sha256(cadena_a_validar.encode()).hexdigest()
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     # Escenario 1: Datos legitimos
     # Usamos el hash exacto que tu sistema ha generado en el paso anterior
     print("\n[Escenario 1: Datos legitimos]")
-    h_confirmado = "84e4c684f0b99d898830bcba137b555469eaf74a66699bed6dd7331b73169221"
+    h_confirmado = "358b0584bf0e75358944c83ddf7e6247c0acaaef5f79a5391f1806a4c4b1e7ed"
     verificar_seguridad(75, h_confirmado)
     
     # Escenario 2: Intento de Sabotaje
